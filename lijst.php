@@ -14,20 +14,15 @@ $stmt = allLists();
     </head>
     <body>
         <div class="container mt-5">
-        <?php
-        foreach($stmt as $data)
-        {
-        ?>
+            <?php foreach($stmt as $data) { ?>
+                <div class="row">
+                    <button class="col-8 border border-primary rounded bg-dark text-center"><a href="taken.php"><h4 class="text-white"><?php echo $data['Naam'] ?></h4></a></button>
+                    <button class="col-2 border border-primary rounded bg-secondary text-center"><a href=""><h4 class="text-white"><?php echo "Bewerken" ?></h4></a></button>
+                    <button class="col-2 border border-primary rounded bg-secondary text-center"><a href=""><h4 class="text-white"><?php echo "Verwijderen" ?></h4></a></button>
+                </div>
+            <?php } ?>
             <div class="row">
-                <button href="taken.php" class="col-8 border border-primary rounded bg-dark text-white text-center"><h4><?php echo $data['Naam'] ?></h4></button>
-                <button class="col-2 border border-primary rounded bg-secondary text-white text-center" onclick=""><h4><?php echo "Bewerken" ?></h4></button>
-                <button class="col-2 border border-primary rounded bg-secondary text-white text-center" onclick=""><h4><?php echo "Verwijderen" ?></h4></button>
-            </div>
-        <?php
-        }
-        ?>
-        <div class="row">
-                <button class="col-2 mt-2 border border-primary rounded bg-primary text-white text-center offset-10"><h4><?php echo "Toeveogen" ?></h4></button>
+                <button class="col-2 mt-2 border border-primary rounded bg-primary text-center offset-10"><a href="lijstToevoegen.php"><h4 class="text-white"><?php echo "Toeveogen" ?></h4></a></button>
             </div>
         </div>
     </body>
