@@ -1,6 +1,6 @@
 <?php
 
-include('queries.php');
+include('lijstQueries.php');
 
 deleteLijst($_GET['id']);
 

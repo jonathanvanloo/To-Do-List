@@ -1,6 +1,6 @@
 <?php
 
-include('queries.php');
+include('lijstQueries.php');
 
 if (isset($_POST['title'])) {
     updateLijst($_GET['id'], $_POST['title']);

@@ -1,6 +1,6 @@
 <?php
 
-include('queries.php');
+include('lijstQueries.php');
 
 if (isset($_POST['title'])) {
     lijstToevoegen($_POST['title']);
