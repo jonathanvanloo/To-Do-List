@@ -2,7 +2,7 @@
 
 include('taakQueries.php');
 
-$stmt = alletaken();
+$stmt = alletaken($_GET['id']);
 
 ?>
 <!DOCTYPE html>
@@ -26,13 +26,13 @@ $stmt = alletaken();
                 <td scope="row"><h5><?php echo $data['beschrijving'] ?></h5></td>
                 <td scope="row"><h5><?php echo $data['duur'] ?></h5></td>
                 <td scope="row"><h5><?php echo $data['status'] ?></h5></td>
-                <td scope="row"><a href="taakUpdaten.php?id=<?php echo $data['id'] ?>&beschrijving=<?php echo $data['beschrijving'] ?>&duur=<?php echo $data['duur'] ?>&status=<?php echo $data['status'] ?>"><h4>Bewerken</h4></a></td>
-                <td scope="row"><a href="taakDeleten.php?id=<?php echo $data['id'] ?>"><h4>verwijderen</h4></a></td>
+                <td scope="row"><a href="taakUpdaten.php?id=<?php echo $data['id'] ?>&beschrijving=<?php echo $data['beschrijving'] ?>&duur=<?php echo $data['duur'] ?>&status=<?php echo $data['status'] ?>&listId=<?php echo $_GET['id'] ?>"><h4>Bewerken</h4></a></td>
+                <td scope="row"><a href="taakDeleten.php?id=<?php echo $data['id'] ?>&listId=<?php echo $_GET['id'] ?>"><h4>verwijderen</h4></a></td>
             </tr>
             <?php } ?>
         </table>
             <div class="row">
-            <button class="col-2 mt-2 border border-primary rounded bg-primary text-center offset-10"><a href="taakToeveogen.php"><h4 class="text-white">Toeveogen</h4></a></button>
+            <button class="col-2 mt-2 border border-primary rounded bg-primary text-center offset-10"><a href="taakToeveogen.php?listId=<?php echo $_GET['id'] ?>"><h4 class="text-white">Toeveogen</h4></a></button>
         </div>
     </div>
     </body>

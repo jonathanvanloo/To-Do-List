@@ -4,7 +4,7 @@ include('taakQueries.php');
 
 if (isset($_POST['beschrijving'])) {
     taakUpdaten($_GET['id'], $_POST['beschrijving'], $_POST['duur'], $_POST['status']);
-    header("Location:taken.php");
+    header("Location:taken.php?id=" . $_GET['listId'] );
 }
 
 ?>

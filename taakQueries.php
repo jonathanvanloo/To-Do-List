@@ -2,22 +2,23 @@
 
 include('connection.php');
 
-function alletaken() {
-    $query = "SELECT * FROM taken";
+function alletaken($listId) {
     $conn = connect();
-    $stmt = $conn->query($query);
+    $stmt = $conn->prepare("SELECT * FROM taken WHERE list_id=:listId");
+    $stmt->bindParam(':listId', $listId);
     $stmt->execute();
     return $stmt;
 }
 
-function taakToevoegen($beschrijving, $duur, $status) {
+function taakToevoegen($beschrijving, $duur, $status, $listId) {
     if (isset($_POST["submit"])) {
         $conn = connect();
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("INSERT INTO taken (beschrijving, duur, status) VALUES (:beschrijving, :duur, :status)");
+        $stmt = $conn->prepare("INSERT INTO taken (beschrijving, duur, status, list_id) VALUES (:beschrijving, :duur, :status, :listId)");
         $stmt->bindParam(':beschrijving', $beschrijving);
         $stmt->bindParam(':duur', $duur);
         $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':listId', $listId);
         $stmt->execute();
     }
 }

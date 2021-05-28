@@ -3,8 +3,8 @@
 include('taakQueries.php');
 
 if (isset($_POST['beschrijving'])) {
-    taakToevoegen($_POST['beschrijving'], $_POST['duur'], $_POST['status']);
-    header("Location:taken.php");
+    taakToevoegen($_POST['beschrijving'], $_POST['duur'], $_POST['status'], $_GET['listId']);
+    header("Location:taken.php?id=" . $_GET['listId'] );
 }
 
 ?>

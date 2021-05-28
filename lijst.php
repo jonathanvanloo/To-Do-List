@@ -16,7 +16,7 @@ $stmt = allLists();
         <div class="container mt-5">
             <?php foreach($stmt as $data) { ?>
                 <div class="row">
-                    <button class="col-8 border border-primary rounded bg-dark text-center"><a href="taken.php"><h4 class="text-white"><?php echo $data['title'] ?></h4></a></button>
+                    <button class="col-8 border border-primary rounded bg-dark text-center"><a href="taken.php?id=<?php echo $data['id'] ?>"><h4 class="text-white"><?php echo $data['title'] ?></h4></a></button>
                     <button class="col-2 border border-primary rounded bg-secondary text-center"><a href="lijstUpdaten.php?id=<?php echo $data['id'] ?>&title=<?php echo $data['title'] ?>"><h4 class="text-white">Bewerken</h4></a></button>
                     <button class="col-2 border border-primary rounded bg-secondary text-center"><a href="lijstDeleten.php?id=<?php echo $data['id'] ?>"><h4 class="text-white">Verwijderen</h4></a></button>
                 </div>
