@@ -2,7 +2,12 @@
 
 include('taakQueries.php');
 
-$stmt = alletaken($_GET['id']);
+$stmt = alleTaken($_GET['id']);
+
+if (isset($_GET["filter"])) {
+    var_dump($_GET["filter"]);
+    $stmt = sortTaken($_GET['filter']);
+}
 
 ?>
 <!DOCTYPE html>
@@ -18,8 +23,8 @@ $stmt = alletaken($_GET['id']);
 	    <table class="table table-hover table-dark">
             <tr>
                 <th scope="col">beschrijving</th>
-                <th scope="col">duur</th>
-                <th scope="col">status</th>
+                <th scope="col"><a href="taken.php?id=<?php echo $_GET['filter'] ?>&filter=duur">duur</a></th>
+                <th scope="col"><a href="taken.php?id=<?php echo $_GET['filter'] ?>&filter=status">status</a></th>
             </tr>
             <?php foreach($stmt as $data) { ?>
             <tr>

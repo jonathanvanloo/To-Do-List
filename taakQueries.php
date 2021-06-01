@@ -2,12 +2,21 @@
 
 include('connection.php');
 
-function alletaken($listId) {
+function alleTaken($listId) {
     $conn = connect();
     $stmt = $conn->prepare("SELECT * FROM taken WHERE list_id=:listId");
     $stmt->bindParam(':listId', $listId);
     $stmt->execute();
     return $stmt;
+}
+
+function sortTaken($filter) {
+        $conn = connect();
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $conn->prepare("SELECT * FROM taken ORDER BY duur");
+        $stmt->bindParam(':filter', $filter);
+        $stmt->execute();
+        return $stmt;
 }
 
 function taakToevoegen($beschrijving, $duur, $status, $listId) {
