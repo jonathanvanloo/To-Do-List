@@ -2,6 +2,7 @@
 
 include('connection.php');
 
+// een functie die alle lijsten ophaalt uit de database
 function allLists() {
     $query = "SELECT * FROM lijst";
     $conn = connect();
@@ -10,6 +11,7 @@ function allLists() {
     return $stmt;
 }
 
+// een functie die een lijst toevoegt aan de database
 function lijstToevoegen($title) {
     if (isset($_POST["submit"])) {
         $conn = connect();
@@ -20,6 +22,7 @@ function lijstToevoegen($title) {
     }
 }
 
+// een functie die een lijst bewerkt in de database
 function updateLijst($id, $title) {
     if (isset($_POST["submit"])) {
         $conn = connect();
@@ -31,6 +34,7 @@ function updateLijst($id, $title) {
     }
 }
 
+// een functie die een lijst verwijdert uit de database
 function deleteLijst($id) {
         $conn = connect();
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -2,6 +2,7 @@
 
 include('taakQueries.php');
 
+//aanroepen van een functie de een taak toevoegd
 if (isset($_POST['beschrijving'])) {
     taakToevoegen($_POST['beschrijving'], $_POST['duur'], $_POST['status'], $_GET['listId']);
     header("Location:taken.php?id=" . $_GET['listId'] );

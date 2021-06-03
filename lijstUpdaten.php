@@ -2,6 +2,7 @@
 
 include('lijstQueries.php');
 
+//aanroepen van een functie de een taak bewerken
 if (isset($_POST['title'])) {
     updateLijst($_GET['id'], $_POST['title']);
     header("Location:lijst.php");

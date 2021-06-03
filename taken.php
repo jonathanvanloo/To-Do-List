@@ -2,11 +2,20 @@
 
 include('taakQueries.php');
 
+//aanroepen van een functie die de taken weergeeft
 $stmt = alleTaken($_GET['id']);
 
+//filter ASC of DESC
 if (isset($_GET["filter"])) {
-    var_dump($_GET["filter"]);
-    $stmt = sortTaken($_GET['filter']);
+    if ($_GET["clicked"] == 2) {
+        var_dump($_GET['clicked'] );
+        $stmt = sortTaken($_GET['filter'], $_GET["clicked"]);
+        $_GET["clicked"] = 1;
+    } else {
+        var_dump($_GET['clicked'] );
+        $stmt = sortTaken($_GET['filter'], $_GET["clicked"]);
+        $_GET["clicked"] = 2;
+    }
 }
 
 ?>
@@ -23,8 +32,8 @@ if (isset($_GET["filter"])) {
 	    <table class="table table-hover table-dark">
             <tr>
                 <th scope="col">beschrijving</th>
-                <th scope="col"><a href="taken.php?id=<?php echo $_GET['filter'] ?>&filter=duur">duur</a></th>
-                <th scope="col"><a href="taken.php?id=<?php echo $_GET['filter'] ?>&filter=status">status</a></th>
+                <th scope="col"><a href="taken.php?id=<?php echo $_GET['filter'] ?>&filter=duur&clicked=<?php echo $_GET['clicked'] ?>">duur</a></th>
+                <th scope="col"><a href="taken.php?id=<?php echo $_GET['filter'] ?>&filter=status&clicked=<?php echo $_GET['clicked'] ?>">status</a></th>
             </tr>
             <?php foreach($stmt as $data) { ?>
             <tr>

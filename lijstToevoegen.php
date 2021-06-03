@@ -2,6 +2,7 @@
 
 include('lijstQueries.php');
 
+//aanroepen van een functie de een lijst toevoegd
 if (isset($_POST['title'])) {
     lijstToevoegen($_POST['title']);
     header("Location:lijst.php");
