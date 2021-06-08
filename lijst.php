@@ -23,7 +23,7 @@ $stmt = allLists();
                 </div>
             <?php } ?>
             <div class="row">
-                <button class="col-2 mt-2 border border-primary rounded bg-primary text-center offset-10"><a href="lijstToevoegen.php"><h4 class="text-white">Toeveogen</h4></a></button>
+                <button class="col-2 mt-2 border border-primary rounded bg-primary text-center offset-10"><a href="lijstToevoegen.php"><h4 class="text-white">Toevoegen</h4></a></button>
             </div>
         </div>
     </body>

@@ -34,7 +34,7 @@ function updateLijst($id, $title) {
     }
 }
 
-// een functie die een lijst verwijdert uit de database
+    // een functie die een lijst verwijdert uit de database
 function deleteLijst($id) {
         $conn = connect();
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
